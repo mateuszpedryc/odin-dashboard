@@ -33,6 +33,7 @@
 
 
 /* Styles reset */
+
 /* Box sizing rules */
 *,
 *::before,
@@ -108,23 +109,30 @@ textarea:not([rows]) {
 
 /* My Styling */
 
-header {
-    height: 60px;
-    background-color: brown;
-    grid-column: span 2;
-}
-
 body {
     font-family: var(--ff-body);
+    font-size: var(--fs-primary-body);
+    font-weight: var(--fw-regular);
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
+    grid-template-rows: 165px 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem;
 }
+
+header {
+    background-color: var(--clr-primary);
+    border-radius: var(--fs-primary-heading);
+    grid-column: span 4;
+}
+
+/* Navigation */
 
 nav {
     border: 2px solid var(--clr-primary);
     border-radius: var(--fs-primary-heading);
-    grid-column: 1 / 1;
-    margin: var(--fs-secondary-heading);
+    grid-column: 1 / 2;
+    grid-row: span 2;
     padding: var(--fs-primary-body);
 }
 
@@ -134,28 +142,95 @@ nav {
     gap: 10px;
 }
 
-
-.button-nav {
+button {
     appearance: none;
     border: 0;
     background: none;
-    display: flex;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
     cursor: pointer;
     gap: var(--fs-400);
     padding: var(--fs-400);
 }
 
+button:is(:hover, :focus) {
+    color: var(--clr-primary);
+    fill: var(--clr-primary);
+}
 
-.button-icon,
-.card-icon {
-    height: 30px;
-    width: 30px;
+svg {
+    width: 24px;
+    height: 24px;
+}
+
+svg:is(:hover, :focus) {
+    fill: var(--clr-primary);
+    cursor: pointer;
+}
+
+/* Main content */
+
+.section-projects {
+    display: grid;
+    grid-column: span 2;
+    grid-row: span 2;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.section-title {
+    grid-column: span 2;
+}
+
+.section-side {
+    grid-column: 4 / 5;
+    grid-row: span 2;
+    display: grid;
+    grid-template-rows: subgrid;
+    gap: 1rem;
+}
+
+.section-news,
+.section-social {
+    border: 2px solid var(--clr-accent);
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 1rem;
+}
+
+
+/* Cards */
+
+.card {
+    border: 2px solid var(--clr-accent);
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 1rem;
+}
+
+.card-icons {
+    display: inline-flex;
+    gap: .5rem;
+}
+
+/* Social section */
+
+a {
+    text-decoration: none;
+}
+
+.avatar {
+    display: inline-flex;
 }
 
 .avatar-icon {
     height: 40px;
     width: 40px;
 }
+
+
+
 
 
 /* Utility classes */
